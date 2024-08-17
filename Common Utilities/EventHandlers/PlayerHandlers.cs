@@ -1,5 +1,3 @@
-using Exiled.API.Enums;
-
 namespace Common_Utilities.EventHandlers;
 
 #pragma warning disable IDE0018
