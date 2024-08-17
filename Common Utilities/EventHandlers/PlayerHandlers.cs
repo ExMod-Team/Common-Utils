@@ -36,7 +36,8 @@ public class PlayerHandlers
             Log.Warn($"{nameof(OnChangingRole)}: Triggering player is null.");
             return;
         }
-
+        
+        // no clue why this works while in ChangingRole instead of spawned but if it ain't broke don't fix it
         if (config.StartingInventories.ContainsKey(ev.NewRole) && !ev.ShouldPreserveInventory)
         {
             if (ev.Items == null)
@@ -76,8 +77,8 @@ public class PlayerHandlers
         RoleTypeId newRole = ev.Player.Role.Type;
         if (config.HealthValues != null && config.HealthValues.TryGetValue(newRole, out int health))
         {
-            ev.Player.Health = health;
             ev.Player.MaxHealth = health;
+            ev.Player.Health = health;
         }
 
         if (ev.Player.Role is FpcRole && config.PlayerHealthInfo)
@@ -86,7 +87,10 @@ public class PlayerHandlers
         }
 
         if (config.AfkIgnoredRoles.Contains(newRole) && Plugin.AfkDict.TryGetValue(ev.Player, out Tuple<int, Vector3> value))
-            Plugin.AfkDict[ev.Player] = new Tuple<int, Vector3>(newRole is RoleTypeId.Spectator ? value.Item1 : 0, ev.Player.Position);
+        {
+            Plugin.AfkDict[ev.Player] =
+                new Tuple<int, Vector3>(newRole is RoleTypeId.Spectator ? value.Item1 : 0, ev.Player.Position);
+        }
     }
 
     public void OnPlayerDied(DiedEventArgs ev)

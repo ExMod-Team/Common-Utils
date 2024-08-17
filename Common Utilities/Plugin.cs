@@ -10,7 +10,6 @@ using Configs;
 using EventHandlers;
 using Exiled.API.Enums;
 using Exiled.API.Features;
-using HarmonyLib;
 using MEC;
 using PlayerRoles;
 using Scp914;
@@ -29,11 +28,9 @@ public class Plugin : Plugin<Config>
 #pragma warning disable SA1307
     public static Plugin Instance;
     public static Random Random;
-    public PlayerHandlers playerHandlers;
+    private PlayerHandlers playerHandlers;
     private ServerHandlers serverHandlers;
     private MapHandlers mapHandlers;
-    private Harmony harmony;
-    private string harmonyName;
 #pragma warning restore SA1307
         
     public static List<CoroutineHandle> Coroutines { get; } = new();
@@ -42,11 +39,11 @@ public class Plugin : Plugin<Config>
 
     public override string Name { get; } = "Common Utilities";
 
-    public override string Author { get; } = "Exiled-Team";
+    public override string Author { get; } = "ExMod-Team, overhaul by Mikihero";
 
     public override Version Version { get; } = new(7, 1, 1);
 
-    public override Version RequiredExiledVersion { get; } = new(8, 8, 1);
+    public override Version RequiredExiledVersion { get; } = new(8, 11, 0);
 
     public override string Prefix { get; } = "CommonUtilities";
 
@@ -111,10 +108,6 @@ public class Plugin : Plugin<Config>
         warhead.Starting += serverHandlers.OnWarheadStarting;
         warhead.Stopping += serverHandlers.OnWarheadStopping;
 
-        harmonyName = $"com-exiled-team.cu-{DateTime.UtcNow.Ticks}";
-        harmony = new Harmony(harmonyName);
-        harmony.PatchAll();
-
         base.OnEnabled();
     }
 
@@ -148,9 +141,7 @@ public class Plugin : Plugin<Config>
 
         warhead.Starting -= serverHandlers.OnWarheadStarting;
         warhead.Stopping -= serverHandlers.OnWarheadStopping;
-            
-        harmony.UnpatchAll(harmonyName);
-
+        
         serverHandlers = null;
         playerHandlers = null;
         mapHandlers = null;

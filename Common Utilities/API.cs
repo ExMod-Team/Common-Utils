@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ConfigObjects;
 
-public class API
+public static class API
 {
     public static double RollChance(IEnumerable<IChanceObject> scp914EffectChances)
     {

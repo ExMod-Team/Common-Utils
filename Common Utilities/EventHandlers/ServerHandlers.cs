@@ -5,16 +5,13 @@ namespace Common_Utilities.EventHandlers
 
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-
+    
     using Exiled.API.Features;
     using Exiled.API.Features.Pickups;
     using Exiled.API.Features.Roles;
     using Exiled.Events.EventArgs.Server;
     using Exiled.Events.EventArgs.Warhead;
-    using InventorySystem.Configs;
     using MEC;
-    using PlayerRoles;
     using UnityEngine;
 
     public class ServerHandlers
@@ -53,11 +50,6 @@ namespace Common_Utilities.EventHandlers
 
             if (config.TimedBroadcastDelay > 0)
                 Plugin.Coroutines.Add(Timing.RunCoroutine(ServerBroadcast()));
-
-            // TODO: test if the stuff below is actually necessary
-            // Fix GrandLoadout not able to give this 2 inventory
-            StartingInventories.DefinedInventories[RoleTypeId.Tutorial] = new(Array.Empty<ItemType>(), new());
-            StartingInventories.DefinedInventories[RoleTypeId.ClassD] = new(Array.Empty<ItemType>(), new());
 
             Warhead.IsLocked = false;
         }

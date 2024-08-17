@@ -25,7 +25,6 @@
     <ItemGroup>
         <PackageReference Include="EXILEDOFFICIAL" Version="8.11.0" />
         <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopVersion)" IncludeAssets="All" PrivateAssets="All" />
-        <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
     </ItemGroup>
 
     <ItemGroup>
