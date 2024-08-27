@@ -28,7 +28,7 @@ public class Plugin : Plugin<Config>
 #pragma warning disable SA1307
     public static Plugin Instance;
     public static Random Random;
-    private PlayerHandlers playerHandlers;
+    public PlayerHandlers playerHandlers;
     private ServerHandlers serverHandlers;
     private MapHandlers mapHandlers;
 #pragma warning restore SA1307

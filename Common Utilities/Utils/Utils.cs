@@ -1,10 +1,10 @@
-﻿namespace Common_Utilities;
+﻿namespace Common_Utilities.Utils;
 
-using System.Collections.Generic;
 using System.Linq;
 using ConfigObjects;
+using System.Collections.Generic;
 
-public static class API
+public static class Utils
 {
     public static double RollChance(IEnumerable<IChanceObject> scp914EffectChances)
     {

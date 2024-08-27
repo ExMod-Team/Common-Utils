@@ -31,7 +31,7 @@ public class MapHandlers
                     || (CustomItem.TryGet(ev.Pickup, out CustomItem item) && item!.Name == x.OriginalItem))
                 .ToList();
 
-            double rolledChance = API.RollChance(itemUpgradeChances);
+            double rolledChance = Utils.Utils.RollChance(itemUpgradeChances);
 
             foreach ((string sourceItem, string destinationItem, double chance, int count) in itemUpgradeChances)
             {
@@ -75,7 +75,7 @@ public class MapHandlers
                     || (CustomItem.TryGet(ev.Item, out CustomItem item) && item!.Name == x.OriginalItem))
                 .ToList();
             
-            double rolledChance = API.RollChance(itemUpgradeChances);
+            double rolledChance = Utils.Utils.RollChance(itemUpgradeChances);
 
             foreach ((string sourceItem, string destinationItem, double chance, int count) in itemUpgradeChances)
             {
@@ -117,7 +117,7 @@ public class MapHandlers
                     || (CustomRole.TryGet(ev.Player, out IReadOnlyCollection<CustomRole> customRoles) && customRoles.Select(r => r.Name).Contains(x.OriginalRole)))
                 .ToList();
 
-            double rolledChance = API.RollChance(playerUpgradeChances);
+            double rolledChance = Utils.Utils.RollChance(playerUpgradeChances);
 
             foreach ((string sourceRole, string destinationRole, double chance, bool keepInventory, bool keepHealth) in playerUpgradeChances)
             {
@@ -172,7 +172,7 @@ public class MapHandlers
         {
             IEnumerable<Scp914EffectChance> scp914EffectChances = config.Scp914EffectChances[ev.KnobSetting];
             
-            double rolledChance = API.RollChance(scp914EffectChances);
+            double rolledChance = Utils.Utils.RollChance(scp914EffectChances);
 
             foreach ((EffectType effect, double chance, float duration) in scp914EffectChances)
             {
@@ -194,7 +194,7 @@ public class MapHandlers
         {
             IEnumerable<Scp914TeleportChance> scp914TeleportChances = config.Scp914TeleportChances[ev.KnobSetting];
 
-            double rolledChance = API.RollChance(scp914TeleportChances);
+            double rolledChance = Utils.Utils.RollChance(scp914TeleportChances);
 
             foreach ((RoomType roomType, List<RoomType> ignoredRooms, Vector3 offset, double chance, float damage, ZoneType zone) in config.Scp914TeleportChances[ev.KnobSetting])
             {

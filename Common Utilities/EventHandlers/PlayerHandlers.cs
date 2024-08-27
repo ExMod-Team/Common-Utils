@@ -160,7 +160,7 @@ public class PlayerHandlers
                 .ToList();
 #pragma warning restore SA1119
 
-            double rolledChance = API.RollChance(itemChances);
+            double rolledChance = Utils.Utils.RollChance(itemChances);
             
             Log.Debug($"[StartItems] RolledChance ({rolledChance})/{itemChances.Sum(val => val.Chance)}");
             
