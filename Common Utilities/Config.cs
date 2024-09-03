@@ -71,7 +71,10 @@ namespace Common_Utilities
         [Description("The multiplier applied to radio battery usage. Set to 0 to disable radio battery drain.")]
         public float RadioBatteryDrainMultiplier { get; set; } = 1f;
 
-        [Description("The color to use for lights while the warhead is active. In the RGBA format using values between 0 and 1.")]
+        [Description("Whether to change the color of lights while warhead is active.")] 
+        public bool ChangeWarheadColor { get; set; } = true;
+        
+        [Description("The color to use for lights while the warhead is active. In the RGBA format using values between 0 and 1. Ignored if ChangeWarheadColor is set to false.")]
         public Color WarheadColor { get; set; } = new(1f, 0.2f, 0.2f, 1);
 
         [Description("The maximum time, in seconds, that a player can be AFK before being kicked. Set to -1 to disable AFK system.")]
@@ -88,7 +91,6 @@ namespace Common_Utilities
         [Description("Whether or not probabilities should be additive (50 + 50 = 100) or not (50 + 50 = 2 seperate 50% chances)")]
         public bool AdditiveProbabilities { get; set; } = false;
 
-        // TODO: check out starting inventory logic
         [Description(
             "The list of starting items for roles. ItemName is the item to give them, and Chance is the percent chance of them spawning with it, and Group allows you to restrict the item to only players with certain RA groups (Leave this as 'none' to allow all players to get the item). You can specify the same item multiple times.")]
         public Dictionary<RoleTypeId, RoleInventory> StartingInventories { get; set; } = new()

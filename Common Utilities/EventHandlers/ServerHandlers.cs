@@ -16,10 +16,9 @@ namespace Common_Utilities.EventHandlers
 
     public class ServerHandlers
     {
-        private readonly Config config;
+        private Config config => Plugin.Instance.Config;
+        
         private bool friendlyFireDisable;
-
-        public ServerHandlers(Plugin plugin) => config = plugin.Config;
 
         public void OnRoundStarted()
         {
@@ -77,6 +76,9 @@ namespace Common_Utilities.EventHandlers
 
         public void OnWarheadStarting(StartingEventArgs _)
         {
+            if (!config.ChangeWarheadColor)
+                return;
+            
             foreach (Room room in Room.List)
                 room.Color = config.WarheadColor;
         }

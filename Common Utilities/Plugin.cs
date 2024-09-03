@@ -39,7 +39,7 @@ public class Plugin : Plugin<Config>
 
     public override string Name { get; } = "Common Utilities";
 
-    public override string Author { get; } = "ExMod-Team, overhaul by Mikihero";
+    public override string Author { get; } = "ExMod-Team";
 
     public override Version Version { get; } = new(7, 1, 1);
 
@@ -58,13 +58,13 @@ public class Plugin : Plugin<Config>
 
         Random = new Random();
 
-        Log.Info($"Instantiating Events..");
+        Log.Debug("Instantiating Events..");
             
         playerHandlers = new PlayerHandlers(this);
         serverHandlers = new ServerHandlers(this);
         mapHandlers = new MapHandlers(this);
             
-        Log.Info($"Registering EventHandlers..");
+        Log.Debug("Registering EventHandlers..");
             
         player.Hurting += playerHandlers.OnPlayerHurting;
         player.Verified += playerHandlers.OnPlayerVerified;
@@ -107,6 +107,8 @@ public class Plugin : Plugin<Config>
 
         warhead.Starting += serverHandlers.OnWarheadStarting;
         warhead.Stopping += serverHandlers.OnWarheadStopping;
+        
+        Log.Debug("Registered EventHandlers");
 
         base.OnEnabled();
     }
