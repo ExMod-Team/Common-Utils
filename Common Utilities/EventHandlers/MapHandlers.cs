@@ -17,9 +17,7 @@ using UnityEngine;
 
 public class MapHandlers
 {
-    private readonly Config config;
-
-    public MapHandlers(Plugin plugin) => config = plugin.Config;
+    private Config config => Plugin.Instance.Config;
         
     public void OnUpgradingPickup(UpgradingPickupEventArgs ev)
     {

@@ -60,9 +60,9 @@ public class Plugin : Plugin<Config>
 
         Log.Debug("Instantiating Events..");
             
-        playerHandlers = new PlayerHandlers(this);
-        serverHandlers = new ServerHandlers(this);
-        mapHandlers = new MapHandlers(this);
+        playerHandlers = new PlayerHandlers();
+        serverHandlers = new ServerHandlers();
+        mapHandlers = new MapHandlers();
             
         Log.Debug("Registering EventHandlers..");
             

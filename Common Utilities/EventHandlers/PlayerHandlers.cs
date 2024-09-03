@@ -17,10 +17,8 @@ using Player = Exiled.API.Features.Player;
 
 public class PlayerHandlers
 {
-    private readonly Config config;
-
-    public PlayerHandlers(Plugin plugin) => config = plugin.Config;
-
+    private Config config => Plugin.Instance.Config;
+    
     public void OnPlayerVerified(VerifiedEventArgs ev)
     {
         string message = FormatJoinMessage(ev.Player);
