@@ -72,7 +72,7 @@ namespace Common_Utilities
         public float RadioBatteryDrainMultiplier { get; set; } = 1f;
 
         [Description("Whether to change the color of lights while warhead is active.")] 
-        public bool ChangeWarheadColor { get; set; } = true;
+        public bool ChangeWarheadColor { get; set; } = false;
         
         [Description("The color to use for lights while the warhead is active. In the RGBA format using values between 0 and 1. Ignored if ChangeWarheadColor is set to false.")]
         public Color WarheadColor { get; set; } = new(1f, 0.2f, 0.2f, 1);

@@ -85,7 +85,7 @@ namespace Common_Utilities.EventHandlers
 
         public void OnWarheadStopping(StoppingEventArgs _)
         {
-            if (Warhead.IsLocked)
+            if (config.ChangeWarheadColor || Warhead.IsLocked)
                 return;
             
             foreach (Room room in Room.List)
