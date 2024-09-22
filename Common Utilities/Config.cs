@@ -144,8 +144,8 @@ namespace Common_Utilities
                     {
                         new()
                         {
-                            OriginalItem = ItemType.KeycardO5.ToString(),
-                            NewItem = ItemType.MicroHID.ToString(),
+                            Original = ItemType.KeycardO5.ToString(),
+                            New = ItemType.MicroHID.ToString(),
                             Chance = 50,
                         }
                     },
@@ -162,8 +162,8 @@ namespace Common_Utilities
                     {
                         new()
                         {
-                            OriginalRole = RoleTypeId.ClassD.ToString(),
-                            NewRole = RoleTypeId.Spectator.ToString(),
+                            Original = RoleTypeId.ClassD.ToString(),
+                            New = RoleTypeId.Spectator.ToString(),
                             Chance = 100,
                         }
                     },

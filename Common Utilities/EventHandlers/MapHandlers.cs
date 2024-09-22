@@ -25,8 +25,8 @@ public class MapHandlers
         {
             List<ItemUpgradeChance> itemUpgradeChances = outItemUpgradeChances
                 .Where(x => 
-                    x.OriginalItem == ev.Pickup.Type.ToString() 
-                    || (CustomItem.TryGet(ev.Pickup, out CustomItem item) && item!.Name == x.OriginalItem))
+                    x.Original == ev.Pickup.Type.ToString() 
+                    || (CustomItem.TryGet(ev.Pickup, out CustomItem item) && item!.Name == x.Original))
                 .ToList();
 
             double rolledChance = Utils.RollChance(itemUpgradeChances);
@@ -69,8 +69,8 @@ public class MapHandlers
         {
             List<ItemUpgradeChance> itemUpgradeChances = outItemUpgradeChances
                 .Where(x => 
-                    x.OriginalItem == ev.Item.Type.ToString() 
-                    || (CustomItem.TryGet(ev.Item, out CustomItem item) && item!.Name == x.OriginalItem))
+                    x.Original == ev.Item.Type.ToString() 
+                    || (CustomItem.TryGet(ev.Item, out CustomItem item) && item!.Name == x.Original))
                 .ToList();
             
             double rolledChance = Utils.RollChance(itemUpgradeChances);
@@ -111,8 +111,8 @@ public class MapHandlers
         {
             List<PlayerUpgradeChance> playerUpgradeChances = outPlayerUpgradeChances
                 .Where(x => 
-                    x.OriginalRole == ev.Player.Role.ToString() 
-                    || (CustomRole.TryGet(ev.Player, out IReadOnlyCollection<CustomRole> customRoles) && customRoles.Select(r => r.Name).Contains(x.OriginalRole)))
+                    x.Original == ev.Player.Role.ToString() 
+                    || (CustomRole.TryGet(ev.Player, out IReadOnlyCollection<CustomRole> customRoles) && customRoles.Select(r => r.Name).Contains(x.Original)))
                 .ToList();
 
             double rolledChance = Utils.RollChance(playerUpgradeChances);
