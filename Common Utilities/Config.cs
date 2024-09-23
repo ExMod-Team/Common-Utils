@@ -39,16 +39,16 @@ namespace Common_Utilities
         public ushort TimedBroadcastDuration { get; set; } = 5;
 
         [Description("The delay between each timed broadcast. To disable timed broadcasts, set this to 0")]
-        public float TimedBroadcastDelay { get; set; } = 300f;
+        public float TimedBroadcastDelay { get; set; } = 0;
 
         [Description("The message displayed to the player when they first join the server. Setting this to empty will disable these broadcasts.")]
-        public string JoinMessage { get; set; } = "<color=#bfff00>Welcome %player%! Please read our rules!</color>";
+        public string JoinMessage { get; set; } = string.Empty;
 
         [Description("The amount of time (in seconds) the join message is displayed.")]
         public ushort JoinMessageDuration { get; set; } = 5;
 
-        [Description("The amount of time (in seconds) after the round starts, before the facilities auto-nuke will start.")]
-        public float AutonukeTime { get; set; } = 1500f;
+        [Description("The amount of time (in seconds) after the round starts, before the facilities auto-nuke will start. Set to -1 to disable.")]
+        public float AutonukeTime { get; set; } = -1;
 
         [Description("Wether or not the nuke should be unable to be disabled during the auto-nuke countdown.")]
         public bool AutonukeLock { get; set; } = true;
@@ -63,7 +63,7 @@ namespace Common_Utilities
         };
 
         [Description("Whether or not to show player's health under their name when you look at them.")]
-        public bool PlayerHealthInfo { get; set; } = true;
+        public bool PlayerHealthInfo { get; set; } = false;
 
         [Description("Whether or not friendly fire should automatically turn on when a round ends (it will turn itself back off before the next round starts).")]
         public bool FriendlyFireOnRoundEnd { get; set; } = false;
@@ -78,7 +78,7 @@ namespace Common_Utilities
         public Color WarheadColor { get; set; } = new(1f, 0.2f, 0.2f, 1);
 
         [Description("The maximum time, in seconds, that a player can be AFK before being kicked. Set to -1 to disable AFK system.")]
-        public int AfkLimit { get; set; } = 120;
+        public int AfkLimit { get; set; } = -1;
         
         [Description("The roles that are ignored by the AFK system.")]
         public List<RoleTypeId> AfkIgnoredRoles { get; set; } = new()
@@ -86,6 +86,8 @@ namespace Common_Utilities
             RoleTypeId.Scp079,
             RoleTypeId.Spectator,
             RoleTypeId.Tutorial,
+            RoleTypeId.Filmmaker,
+            RoleTypeId.Overwatch,
         };
 
         [Description("Whether or not probabilities should be additive (50 + 50 = 100) or not (50 + 50 = 2 seperate 50% chances)")]
@@ -141,13 +143,11 @@ namespace Common_Utilities
             {
                 Scp914KnobSetting.Rough, new List<ItemUpgradeChance>
                 {
+                    new()
                     {
-                        new()
-                        {
-                            Original = ItemType.KeycardO5.ToString(),
-                            New = ItemType.MicroHID.ToString(),
-                            Chance = 50,
-                        }
+                        Original = ItemType.KeycardO5.ToString(),
+                        New = ItemType.MicroHID.ToString(),
+                        Chance = 50,
                     },
                 }
             },
@@ -250,9 +250,6 @@ namespace Common_Utilities
             {
                 RoleTypeId.Scp173, 0
             },
-            {
-                RoleTypeId.Scp939, 10
-            },
         };
         
         [Description("A list of roles and what their default starting health should be.")]
@@ -260,9 +257,6 @@ namespace Common_Utilities
         {
             {
                 RoleTypeId.Scp173, 3200
-            },
-            {
-                RoleTypeId.NtfCaptain, 150
             },
         };
     }
