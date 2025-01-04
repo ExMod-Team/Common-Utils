@@ -216,8 +216,8 @@ public class MapHandlers
             double rolledChance = Utils.RollChance(scp914TeleportChances);
 
             foreach ((RoomType roomType, List<RoomType> ignoredRooms, Vector3 offset, double chance, float damage, ZoneType zone) in config.Scp914TeleportChances[ev.KnobSetting])
-            {
-                Log.Debug($"{nameof(OnUpgradingPlayer)} : {nameof(config.Scp914TeleportChances)}: {ev.Player.Nickname} is trying to be teleported by 914. {roomType} + {offset}; {zone} + {ignoredRooms.Count} ignored rooms; damage: {damage}; {rolledChance} <= {chance} ({rolledChance <= chance})");
+            {                
+                Log.Debug($"{nameof(OnUpgradingPlayer)} : {nameof(config.Scp914TeleportChances)}: {ev.Player.Nickname} is trying to be teleported by 914. {roomType} + {offset}; {zone} + {ignoredRooms?.Count} ignored rooms; damage: {damage}; {rolledChance} <= {chance} ({rolledChance <= chance})");
 
                 if (rolledChance <= chance)
                 {
