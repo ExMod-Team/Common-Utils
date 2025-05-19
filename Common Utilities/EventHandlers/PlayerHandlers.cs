@@ -1,5 +1,3 @@
-using System.Collections.Specialized;
-
 namespace Common_Utilities.EventHandlers;
 
 #pragma warning disable IDE0018
