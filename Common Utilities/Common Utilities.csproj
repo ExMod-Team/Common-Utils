@@ -23,16 +23,33 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="ExMod.Exiled" Version="9.1.1" />
+        <PackageReference Include="ExMod.Exiled" Version="9.6.0-beta8" />
         <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopVersion)" IncludeAssets="All" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll" Private="false" />
-        <Reference Include="Mirror" HintPath="$(EXILED_REFERENCES)\Mirror.dll" Private="false" />
-        <Reference Include="UnityEngine" HintPath="$(EXILED_REFERENCES)\UnityEngine.dll" Private="false" />
-        <Reference Include="UnityEngine.CoreModule" HintPath="$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll" Private="false" />
-        <Reference Include="UnityEngine.PhysicsModule" HintPath="$(EXILED_REFERENCES)\UnityEngine.PhysicsModule.dll" Private="false" />
-        <Reference Include="YamlDotNet" HintPath="$(EXILED_REFERENCES)\YamlDotNet.dll" Private="false" />
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
+            <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror">
+            <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\Mirror.dll</HintPath>
+            <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\Mirror.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\UnityEngine.dll</HintPath>
+            <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
+            <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)/UnityEngine.PhysicsModule.dll</HintPath>
+            <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+            <HintPath>..\packages\ExMod.Exiled.9.6.0-beta8\lib\net48\YamlDotNet.dll</HintPath>
+        </Reference>
     </ItemGroup>
 </Project>
