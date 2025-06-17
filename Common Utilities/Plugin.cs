@@ -43,7 +43,7 @@ public class Plugin : Plugin<Config>
 
     public override Version Version { get; } = new(8, 1, 1);
 
-    public override Version RequiredExiledVersion { get; } = new(9, 6, 0);
+    public override Version RequiredExiledVersion { get; } = new(9, 6, 1);
 
     public override string Prefix { get; } = "CommonUtilities";
 
