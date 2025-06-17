@@ -164,7 +164,7 @@ public class PlayerHandlers
                     player == null 
                     || string.IsNullOrEmpty(x.Group) 
                     || x.Group == "none" 
-                    || x.Group == player.Group.Name)
+                    || x.Group == player.Group?.Name)
                 .ToList();
 
             Log.Debug($"{nameof(GetStartingInventory)} Finished checking groups, found {itemChances.Count} valid itemChances.");
