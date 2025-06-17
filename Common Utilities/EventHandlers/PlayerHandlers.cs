@@ -40,7 +40,7 @@ public class PlayerHandlers
         
         // no clue why this works while in ChangingRole instead of spawned but if it ain't broke don't fix it
         // answering my previous question, (obviously) it works because we're setting ev.Items which are yet to be given to the player
-        if (config.StartingInventories.ContainsKey(ev.NewRole) && !ev.ShouldPreserveInventory)
+        if (config.StartingInventories is not null && config.StartingInventories.ContainsKey(ev.NewRole) && !ev.ShouldPreserveInventory)
         {
             if (ev.Items == null)
             {
@@ -126,7 +126,7 @@ public class PlayerHandlers
 
     public void OnEscaping(EscapingEventArgs ev)
     {
-        if (ev.Player.IsCuffed && config.DisarmedEscapeSwitchRole is not null && config.DisarmedEscapeSwitchRole.TryGetValue(ev.Player.Role, out RoleTypeId newRole))
+        if (ev.Player.IsCuffed && config.DisarmedEscapeSwitchRole is not null && config.DisarmedEscapeSwitchRole.TryGetValue(ev.Player.Role.Type, out RoleTypeId newRole))
         {
             ev.NewRole = newRole;
             ev.IsAllowed = newRole != RoleTypeId.None;
