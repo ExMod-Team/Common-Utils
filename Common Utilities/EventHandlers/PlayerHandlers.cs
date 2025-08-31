@@ -1,3 +1,5 @@
+using Exiled.API.Enums;
+
 namespace Common_Utilities.EventHandlers;
 
 #pragma warning disable IDE0018
@@ -130,6 +132,7 @@ public class PlayerHandlers
         {
             ev.NewRole = newRole;
             ev.IsAllowed = newRole != RoleTypeId.None;
+            ev.EscapeScenario = EscapeScenario.CustomEscape;
         }
     }
 
