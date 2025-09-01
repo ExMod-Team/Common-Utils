@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Library</OutputType>
@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="ExMod.Exiled" Version="9.6.0-beta8" />
+        <PackageReference Include="ExMod.Exiled" Version="9.8.1" />
         <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopVersion)" IncludeAssets="All" PrivateAssets="All" />
     </ItemGroup>
 
