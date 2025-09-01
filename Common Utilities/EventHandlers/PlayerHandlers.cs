@@ -1,5 +1,3 @@
-using Exiled.API.Enums;
-
 namespace Common_Utilities.EventHandlers;
 
 #pragma warning disable IDE0018
@@ -7,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ConfigObjects;
+using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Features.Roles;
 using Exiled.CustomItems.API.Features;
@@ -166,7 +165,7 @@ public class PlayerHandlers
                 .Where(x => 
                     player == null 
                     || string.IsNullOrEmpty(x.Group) 
-                    || x.Group == "none" 
+                    || x.Group == "none"
                     || x.Group == player.Group?.Name)
                 .ToList();
 
