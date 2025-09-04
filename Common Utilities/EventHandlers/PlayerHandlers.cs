@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ConfigObjects;
+using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Features.Roles;
 using Exiled.CustomItems.API.Features;
